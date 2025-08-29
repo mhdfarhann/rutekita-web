@@ -12,7 +12,7 @@ import {
 import AppScreenshotSlider from "../components/AppScreenshotSlider"
 import Image from "next/image"
 import { useIsMobile } from "@/hooks/useMobile"
-import Logopr from "@/components/logopr"
+import Logoprs from "@/components/logopr"
 
 
 
@@ -36,7 +36,7 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
                     <div className="relative w-14 h-14 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center shadow-xl">
                       {/* <Bus className="w-8 h-8 text-white" /> */}
-                      <Logopr/>
+                      <Logoprs/>
                     </div>
                   </div>
                   <div>
@@ -439,7 +439,7 @@ export default function HomePage() {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75"></div>
                       <div className="relative w-12 h-12 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center">
-                        <Logopr/>
+                        <Logoprs/>
 
                       </div>
                     </div>
