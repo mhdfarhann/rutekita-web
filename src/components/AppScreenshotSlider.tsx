@@ -11,14 +11,14 @@ export default function AppScreenshotSlider() {
     renderMode: "performance",
     slides: {
       perView: 1,
-      spacing: 20,
+      spacing: 10,
     },
     breakpoints: {
       "(min-width: 768px)": {
-        slides: { perView: 2, spacing: 30 },
+        slides: { perView: 2, spacing: 15 },
       },
       "(min-width: 1024px)": {
-        slides: { perView: 3, spacing: 40 },
+        slides: { perView: 3, spacing: 20 },
       },
     },
   })
