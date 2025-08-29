@@ -10,22 +10,11 @@ import {
   Phone,
 } from "lucide-react"
 import AppScreenshotSlider from "../components/AppScreenshotSlider"
-import { Geist, Geist_Mono } from "next/font/google"
 import Image from "next/image"
 import { useIsMobile } from "@/hooks/useMobile"
-import logopr from "@/components/logopr"
 import Logopr from "@/components/logopr"
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
 
 export default function HomePage() {
   const isMobile = useIsMobile()
@@ -526,11 +515,4 @@ export default function HomePage() {
   )
 }
 
-function Stat({ number, label }: { number: string; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="text-3xl font-bold gradient-text">{number}</div>
-      <div className="text-sm text-slate-500">{label}</div>
-    </div>
-  )
-}
+
