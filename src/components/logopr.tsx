@@ -1,8 +1,8 @@
 import * as React from "react";
 
-type LogoprsProps = React.SVGProps<SVGSVGElement>;
+type LogoprProps = React.SVGProps<SVGSVGElement>;
 
-const Logoprs: React.FC<LogoprsProps> = (props) => {
+const Logopr: React.FC<LogoprProps> = (props) => {
   return (
     <svg
       id="Layer_1"
@@ -31,4 +31,4 @@ const Logoprs: React.FC<LogoprsProps> = (props) => {
   );
 };
 
-export default Logoprs;
+export default Logopr;
