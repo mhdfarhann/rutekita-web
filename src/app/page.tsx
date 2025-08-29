@@ -1,3 +1,4 @@
+'use client'
 import {
   Bus,
   MapPin,
@@ -6,9 +7,15 @@ import {
   BarChart3,
   Smartphone,
   ArrowRight,
+  Phone,
 } from "lucide-react"
 import AppScreenshotSlider from "../components/AppScreenshotSlider"
 import { Geist, Geist_Mono } from "next/font/google"
+import Image from "next/image"
+import { useIsMobile } from "@/hooks/useMobile"
+import logopr from "@/components/logopr"
+import Logopr from "@/components/logopr"
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,13 +28,9 @@ const geistMono = Geist_Mono({
 })
 
 export default function HomePage() {
+  const isMobile = useIsMobile()
   return (
-    <html lang="id" className="scroll-smooth">
-      <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" />
-      </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+        <div className="min-h-screen w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 ">
           {/* Floating Background Elements */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none">
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-[#0f4444]/5 to-transparent rounded-full blur-3xl"></div>
@@ -37,13 +40,14 @@ export default function HomePage() {
 
           {/* Header */}
           <header className="fixed top-0 w-full bg-white/70 backdrop-blur-2xl z-50 border-b border-slate-200/50">
-            <div className="container mx-auto px-6 py-4">
-              <div className="flex items-center justify-between">
+            <div className="container mx-auto py-4">
+              <div className="flex items-center justify-between px-8">
                 <div className="flex items-center space-x-4">
                   <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0f4444] to-[#156064] rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
-                    <div className="relative w-14 h-14 bg-gradient-to-br from-[#0f4444] to-[#156064] rounded-2xl flex items-center justify-center shadow-xl">
-                      <Bus className="w-8 h-8 text-white" />
+                    <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
+                    <div className="relative w-14 h-14 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center shadow-xl">
+                      {/* <Bus className="w-8 h-8 text-white" /> */}
+                      <Logopr/>
                     </div>
                   </div>
                   <div>
@@ -71,7 +75,10 @@ export default function HomePage() {
                     <span className="text-sm font-medium text-emerald-700">Pra-Peluncuran</span>
                   </div>
                   <button className="bg-gradient-to-r from-[#0f4444] to-[#156064] text-white px-6 py-2.5 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
-                    Hubungi Kami
+                    {isMobile ? (
+                      <Phone className="w-5 h-5" />
+                    ) : (
+                    "Hubungi Kami")}
                   </button>
                 </div>
               </div>
@@ -79,17 +86,17 @@ export default function HomePage() {
           </header>
 
           {/* Hero Section */}
-          <section className="pt-32 pb-20 px-6 relative overflow-hidden">
-            <div className="container mx-auto">
-              <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <section className="pt-32 pb-20 px-6 relative w-full overflow-hidden ">
+            <div className="container mx-auto gap-4">
+              <div className="grid col-span-1 lg:grid-cols-2 gap-16 items-center">
                 {/* Left Content */}
-                <div className="text-center lg:text-left space-y-8">
-                  <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-[#0f4444]/10 to-[#156064]/10 px-5 py-3 rounded-full border border-[#0f4444]/20">
+                <div className="text-center lg:text-left  h-[80svh] flex flex-col justify-between px-8">
+                  <div className="inline-flex items-center space-x-3 w-fit bg-gradient-to-r from-[#0f4444]/10 to-[#156064]/10 px-5 py-3 rounded-full border border-[#0f4444]/20">
                     <div className="w-2 h-2 bg-[#0f4444] rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-[#0f4444]">Platform Transportasi Generasi Terbaru</span>
+                    <span className="text-xs lg:text-sm font-semibold text-[#0f4444]">Platform Transportasi Generasi Terbaru</span>
                   </div>
                   
-                  <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
                     <span className="bg-gradient-to-r from-[#0f4444] via-[#156064] to-[#0f4444] bg-clip-text text-transparent">RuteKita</span>
                     <br />
                     <span className="text-slate-900">Mentransformasi</span>
@@ -103,16 +110,16 @@ export default function HomePage() {
                   
                   {/* Stats */}
                   <div className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
-                    <div className="text-center">
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#0f4444] to-[#156064] bg-clip-text text-transparent">50+</div>
+                    <div className="text-center flex flex-col justify-center items-center">
+                      <div className="text-2xl font-bold bg-gradient-to-r from-[#0f4444] to-[#156064] bg-clip-text text-transparent">50+</div>
                       <div className="text-sm text-slate-500">Kota Target</div>
                     </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#0f4444] to-[#156064] bg-clip-text text-transparent">85%</div>
+                    <div className="text-center flex flex-col justify-center items-center">
+                      <div className="text-2xl font-bold bg-gradient-to-r from-[#0f4444] to-[#156064] bg-clip-text text-transparent">85%</div>
                       <div className="text-sm text-slate-500">Pengembangan</div>
                     </div>
-                    <div className="text-center">
-                      <div className="text-3xl font-bold bg-gradient-to-r from-[#0f4444] to-[#156064] bg-clip-text text-transparent">Q2 2025</div>
+                    <div className="text-center flex flex-col justify-center items-center">
+                      <div className="text-2xl font-bold bg-gradient-to-r from-[#0f4444] to-[#156064] bg-clip-text text-transparent">Q2 2025</div>
                       <div className="text-sm text-slate-500">Siap Diluncurkan</div>
                     </div>
                   </div>
@@ -131,13 +138,18 @@ export default function HomePage() {
                 </div>
                 
                 {/* Right Content - App Preview Placeholder */}
-                <div className="relative flex justify-center lg:justify-end">
+                <div className=" flex justify-center ">
                   <div className="w-80 h-[600px] bg-gradient-to-br from-slate-100 to-white rounded-3xl shadow-2xl border-8 border-slate-800 overflow-hidden z-20">
                     <div className="w-full h-full bg-gradient-to-br from-[#0f4444] to-[#156064] flex items-center justify-center text-white">
                       <div className="text-center">
                         <Smartphone className="w-20 h-20 mx-auto mb-6" />
-                        <h3 className="text-2xl font-bold mb-2">Hero App Preview</h3>
-                        <p className="text-white/80">Replace with your main app screenshot</p>
+                         <Image
+                                          src={`/screenshots/1.png`}
+                                          alt={`App Screenshot `}
+                                          width={320}
+                                          height={640}
+                                          className="object-cover w-full h-full"
+                                        />
                       </div>
                     </div>
                   </div>
@@ -333,8 +345,8 @@ export default function HomePage() {
                 
                 {/* Timeline */}
                 <div className="mt-16 text-center">
-                  <div className="inline-flex items-center space-x-8 bg-white rounded-2xl p-6 shadow-lg">
-                    <div className="text-center">
+                  <div className="flex flex-col lg:flex-row justify-center items-center gap-4 bg-white rounded-2xl p-6 shadow-lg ">
+                    <div className="text-center flex justify-center items-center flex-col">
                       <div className="w-12 h-12 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center mb-2">
                         <span className="text-white font-bold text-sm">Q4</span>
                       </div>
@@ -342,7 +354,7 @@ export default function HomePage() {
                       <div className="text-xs text-slate-500">Pengembangan</div>
                     </div>
                     <div className="w-8 h-0.5 bg-gradient-to-r from-emerald-500 to-blue-500"></div>
-                    <div className="text-center">
+                    <div className="text-center flex justify-center items-center flex-col">
                       <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-2 animate-pulse">
                         <span className="text-white font-bold text-sm">Q1</span>
                       </div>
@@ -350,7 +362,7 @@ export default function HomePage() {
                       <div className="text-xs text-slate-500">Beta Testing</div>
                     </div>
                     <div className="w-8 h-0.5 bg-gradient-to-r from-blue-500 to-[#0f4444]"></div>
-                    <div className="text-center">
+                    <div className="text-center flex justify-center items-center flex-col">
                       <div className="w-12 h-12 bg-gradient-to-r from-[#0f4444] to-[#156064] rounded-full flex items-center justify-center mb-2">
                         <span className="text-white font-bold text-sm">Q2</span>
                       </div>
@@ -389,7 +401,7 @@ export default function HomePage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-                  <button className="group bg-white text-[#0f4444] px-10 py-5 rounded-2xl font-bold hover:bg-slate-100 hover:scale-105 transition-all duration-300 flex items-center space-x-4 shadow-2xl">
+                  <button className="group bg-white text-[#0f4444] px-10 py-5 rounded-2xl font-bold hover:bg-slate-100 hover:scale-105 transition-all duration-300 flex items-center  shadow-2xl">
                     <div className="text-3xl">📧</div>
                     <div className="text-left">
                       <div className="text-sm opacity-60">Kemitraan</div>
@@ -436,9 +448,10 @@ export default function HomePage() {
                 <div className="col-span-2 md:col-span-1">
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="relative group">
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#0f4444] to-[#156064] rounded-2xl blur opacity-75"></div>
-                      <div className="relative w-12 h-12 bg-gradient-to-br from-[#0f4444] to-[#156064] rounded-2xl flex items-center justify-center">
-                        <Bus className="w-7 h-7 text-white" />
+                      <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75"></div>
+                      <div className="relative w-12 h-12 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center">
+                        <Logopr/>
+
                       </div>
                     </div>
                     <div>
@@ -509,8 +522,7 @@ export default function HomePage() {
           </footer>
           
         </div>
-      </body>
-    </html>
+    
   )
 }
 
