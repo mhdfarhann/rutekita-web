@@ -10,22 +10,11 @@ import {
   Phone,
 } from "lucide-react"
 import AppScreenshotSlider from "../components/AppScreenshotSlider"
-import { Geist, Geist_Mono } from "next/font/google"
 import Image from "next/image"
 import { useIsMobile } from "@/hooks/useMobile"
-import logopr from "@/components/logopr"
-import Logopr from "@/components/logopr"
+import Logoprs from "@/components/logopr"
 
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-})
 
 export default function HomePage() {
   const isMobile = useIsMobile()
@@ -47,7 +36,7 @@ export default function HomePage() {
                     <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
                     <div className="relative w-14 h-14 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center shadow-xl">
                       {/* <Bus className="w-8 h-8 text-white" /> */}
-                      <Logopr/>
+                      <Logoprs/>
                     </div>
                   </div>
                   <div>
@@ -450,7 +439,7 @@ export default function HomePage() {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75"></div>
                       <div className="relative w-12 h-12 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center">
-                        <Logopr/>
+                        <Logoprs/>
 
                       </div>
                     </div>
@@ -526,11 +515,4 @@ export default function HomePage() {
   )
 }
 
-function Stat({ number, label }: { number: string; label: string }) {
-  return (
-    <div className="text-center">
-      <div className="text-3xl font-bold gradient-text">{number}</div>
-      <div className="text-sm text-slate-500">{label}</div>
-    </div>
-  )
-}
+
