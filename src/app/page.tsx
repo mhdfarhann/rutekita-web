@@ -13,6 +13,43 @@ import AppScreenshotSlider from "../components/AppScreenshotSlider"
 import Image from "next/image"
 import { useIsMobile } from "@/hooks/useMobile"
 import Logopr from "@/components/logopr"
+import { JSX } from "react"
+
+
+interface Feature {
+  icon: JSX.Element
+  title: string
+  desc: string
+}
+
+const features: Feature[] = [
+  {
+    icon: <CreditCard className="w-8 h-8" />,
+    title: "Pembayaran Cerdas",
+    desc: "Berbagai opsi pembayaran dengan proses aman dan konfirmasi instan"
+  },
+  {
+    icon: <ShieldCheck className="w-8 h-8" />,
+    title: "Keamanan Utama",
+    desc: "Operator terverifikasi, rating keamanan, dan fitur bantuan darurat"
+  },
+  {
+    icon: <BarChart3 className="w-8 h-8" />,
+    title: "Analitik Data",
+    desc: "Insight komprehensif untuk optimasi rute dan prediksi permintaan"
+  },
+  {
+    icon: <Smartphone className="w-8 h-8" />,
+    title: "Mobile Optimal",
+    desc: "Aplikasi native untuk iOS dan Android dengan kemampuan offline"
+  },
+  {
+    icon: <Bus className="w-8 h-8" />,
+    title: "Manajemen Armada",
+    desc: "Kontrol operasional lengkap dengan penjadwalan perawatan dan manajemen "
+  }
+]
+
 
 
 
@@ -114,34 +151,19 @@ export default function HomePage() {
                   </div>
                   
                   {/* CTA Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <button className="group bg-gradient-to-r from-[#0f4444] to-[#156064] text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
-                      <span>Lihat Demo</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="group bg-white/80 backdrop-blur-sm border-2 border-[#0f4444]/20 text-[#0f4444] px-8 py-4 rounded-2xl font-semibold hover:bg-[#0f4444] hover:text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
-                      <span>Kemitraan</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
+                 
                 </div>
                 
                 {/* Right Content - App Preview Placeholder */}
                 <div className=" flex justify-center ">
-                  <div className="w-80 h-[600px] bg-gradient-to-br from-slate-100 to-white rounded-3xl shadow-2xl border-8 border-slate-800 overflow-hidden z-20">
-                    <div className="w-full h-full bg-gradient-to-br from-[#0f4444] to-[#156064] flex items-center justify-center text-white">
                       <div className="text-center">
-                        <Smartphone className="w-20 h-20 mx-auto mb-6" />
                          <Image
-                                          src={`/screenshots/1.png`}
-                                          alt={`App Screenshot `}
-                                          width={320}
-                                          height={640}
-                                          className="object-cover w-full h-full"
-                                        />
+                              src={`/screenshots/1.png`}
+                              alt={`App Screenshot `}
+                              width={320}
+                              height={640}
+                           />
                       </div>
-                    </div>
-                  </div>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#0f4444]/30 to-[#156064]/30 rounded-3xl opacity-60 blur-xl -z-10 scale-110 animate-pulse"></div>
                 </div>
               </div>
@@ -200,67 +222,66 @@ export default function HomePage() {
 
           
 
-          {/* Features Section */}
-          <section id="fitur" className="py-20 bg-gradient-to-br from-slate-900 via-[#0f4444] to-[#156064] text-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
-              <div className="absolute bottom-20 right-20 w-48 h-48 border border-white rounded-full"></div>
-              <div className="absolute top-1/3 right-1/4 w-24 h-24 border border-white rounded-full"></div>
-              <div className="absolute bottom-1/3 left-1/4 w-36 h-36 border border-white rounded-full"></div>
+        {/* Features Section */}
+<section
+  id="fitur"
+  className="py-20 bg-gradient-to-br from-slate-900 via-[#0f4444] to-[#156064] text-white relative overflow-hidden"
+>
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
+    <div className="absolute bottom-20 right-20 w-48 h-48 border border-white rounded-full"></div>
+    <div className="absolute top-1/3 right-1/4 w-24 h-24 border border-white rounded-full"></div>
+    <div className="absolute bottom-1/3 left-1/4 w-36 h-36 border border-white rounded-full"></div>
+  </div>
+
+  <div className="container mx-auto px-6 relative">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl lg:text-5xl font-bold mb-4">Fitur Canggih</h2>
+      <p className="text-xl text-white/80 max-w-3xl mx-auto">
+        Dibangun dengan teknologi terdepan untuk memberikan pengalaman pengguna yang luar biasa dan efisiensi operasional
+      </p>
+    </div>
+
+    <div className="space-y-8 max-w-6xl mx-auto">
+      {/* Baris pertama (3 item) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        {features.slice(0, 3).map((feature, index) => (
+          <div
+            key={index}
+            className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 
+                       hover:bg-white/20 hover:scale-105 transition-all duration-300 
+                       h-full flex flex-col"
+          >
+            <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
+              {feature.icon}
             </div>
-            
-            <div className="container mx-auto px-6 relative">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-4">Fitur Canggih</h2>
-                <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                  Dibangun dengan teknologi terdepan untuk memberikan pengalaman pengguna yang luar biasa dan efisiensi operasional
-                </p>
-              </div>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {[
-                  {
-                    icon: <MapPin className="w-8 h-8" />,
-                    title: "Pelacakan Real-time",
-                    desc: "Pelacakan GPS langsung dengan prediksi kedatangan akurat dan update rute"
-                  },
-                  {
-                    icon: <CreditCard className="w-8 h-8" />,
-                    title: "Pembayaran Cerdas",
-                    desc: "Berbagai opsi pembayaran dengan proses aman dan konfirmasi instan"
-                  },
-                  {
-                    icon: <ShieldCheck className="w-8 h-8" />,
-                    title: "Keamanan Utama",
-                    desc: "Operator terverifikasi, rating keamanan, dan fitur bantuan darurat"
-                  },
-                  {
-                    icon: <BarChart3 className="w-8 h-8" />,
-                    title: "Analitik Data",
-                    desc: "Insight komprehensif untuk optimasi rute dan prediksi permintaan"
-                  },
-                  {
-                    icon: <Smartphone className="w-8 h-8" />,
-                    title: "Mobile Optimal",
-                    desc: "Aplikasi native untuk iOS dan Android dengan kemampuan offline"
-                  },
-                  {
-                    icon: <Bus className="w-8 h-8" />,
-                    title: "Manajemen Armada",
-                    desc: "Kontrol operasional lengkap dengan penjadwalan perawatan dan manajemen kru"
-                  }
-                ].map((feature, index) => (
-                  <div key={index} className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                    <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                    <p className="text-white/80 text-sm leading-relaxed">{feature.desc}</p>
-                  </div>
-                ))}
-              </div>
+            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+            <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Baris kedua (2 item di tengah) */}
+      <div className="flex justify-center gap-8 items-stretch">
+        {features.slice(3).map((feature, index) => (
+          <div
+            key={index}
+            className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 
+                       hover:bg-white/20 hover:scale-105 transition-all duration-300 
+                       h-full flex flex-col min-w-[280px] max-w-[320px]"
+          >
+            <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
+              {feature.icon}
             </div>
-          </section>
+            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+            <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
           {/* Development Roadmap */}
           <section id="roadmap" className="py-20 bg-slate-50">
@@ -297,7 +318,9 @@ export default function HomePage() {
                       "Integrasi Booking & Pembayaran",
                       "MVP Dashboard Admin",
                       "Desain UI/UX Aplikasi Mobile",
-                      "Skema Database & API"
+                      "Skema Database & API",
+                      "Sistem Push Notification",
+                      "Portal Manajemen Operator"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
                         <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center">
@@ -319,7 +342,6 @@ export default function HomePage() {
                       "Sistem Push Notification",
                       "Portal Manajemen Operator",
                       "Dashboard Analitik Canggih",
-                      "Dukungan Multi-bahasa",
                       "Program Beta Testing"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
@@ -394,7 +416,7 @@ export default function HomePage() {
                     <div className="text-3xl">📧</div>
                     <div className="text-left">
                       <div className="text-sm opacity-60">Kemitraan</div>
-                      <div className="text-lg">partnership@rutekita.com</div>
+                      <div className="text-lg">mulateknologimandiri@gmail.com</div>
                     </div>
                     <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   </button>
@@ -402,7 +424,7 @@ export default function HomePage() {
                     <div className="text-3xl">📞</div>
                     <div className="text-left">
                       <div className="text-sm opacity-60">Pengembangan Bisnis</div>
-                      <div className="text-lg">+62 812-3456-7890</div>
+                      <div className="text-lg">0853-7242-7910</div>
                     </div>
                     <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   </button>
@@ -459,7 +481,7 @@ export default function HomePage() {
                       <span>Fase Pra-Peluncuran</span>
                     </div>
                     <div>📧 mulateknologimandiri@gmail.com</div>
-                    <div>📞 +62 812-3456-7890</div>
+                    <div>📞 0853-7242-7910</div>
                     <div>📍 Aceh, Indonesia</div>
                   </div>
                 </div>
