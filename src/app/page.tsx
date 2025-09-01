@@ -250,52 +250,55 @@ export default function HomePage() {
     <div className="absolute bottom-1/3 left-1/4 w-36 h-36 border border-white rounded-full"></div>
   </div>
 
-  <div className="container mx-auto px-6 relative">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl lg:text-5xl font-bold mb-4">Fitur Canggih</h2>
-      <p className="text-xl text-white/80 max-w-3xl mx-auto">
-        Dibangun dengan teknologi terdepan untuk memberikan pengalaman pengguna yang luar biasa dan efisiensi operasional
-      </p>
+<div className="container mx-auto px-4 sm:px-6 relative">
+  <div className="text-center mb-12 sm:mb-16">
+    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Fitur Canggih</h2>
+    <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto px-2">
+      Dibangun dengan teknologi terdepan untuk memberikan pengalaman pengguna yang luar biasa dan efisiensi operasional
+    </p>
+  </div>
+
+  <div className="space-y-6 sm:space-y-8 max-w-6xl mx-auto">
+    {/* Mobile: Stack semua items, Tablet+: Grid layout */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      {/* Baris pertama (3 item) - Mobile: stack, Desktop: 3 kolom */}
+      {features.slice(0, 3).map((feature, index) => (
+        <div
+          key={index}
+          className="group bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl 
+                     border border-white/20 hover:bg-white/20 hover:scale-105 
+                     transition-all duration-300 h-full flex flex-col
+                     lg:col-span-1"
+        >
+          <div className="text-white/80 mb-3 sm:mb-4 group-hover:text-white transition-colors duration-300">
+            {feature.icon}
+          </div>
+          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{feature.title}</h3>
+          <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
+        </div>
+      ))}
     </div>
 
-    <div className="space-y-8 max-w-6xl mx-auto">
-      {/* Baris pertama (3 item) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-        {features.slice(0, 3).map((feature, index) => (
-          <div
-            key={index}
-            className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 
-                       hover:bg-white/20 hover:scale-105 transition-all duration-300 
-                       h-full flex flex-col"
-          >
-            <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
-              {feature.icon}
-            </div>
-            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-            <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
+    {/* Baris kedua (2 item) */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 
+                    lg:max-w-4xl lg:mx-auto">
+      {features.slice(3).map((feature, index) => (
+        <div
+          key={index}
+          className="group bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-xl sm:rounded-2xl 
+                     border border-white/20 hover:bg-white/20 hover:scale-105 
+                     transition-all duration-300 h-full flex flex-col"
+        >
+          <div className="text-white/80 mb-3 sm:mb-4 group-hover:text-white transition-colors duration-300">
+            {feature.icon}
           </div>
-        ))}
-      </div>
-
-      {/* Baris kedua (2 item di tengah) */}
-      <div className="flex justify-center gap-8 items-stretch">
-        {features.slice(3).map((feature, index) => (
-          <div
-            key={index}
-            className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 
-                       hover:bg-white/20 hover:scale-105 transition-all duration-300 
-                       h-full flex flex-col min-w-[280px] max-w-[320px]"
-          >
-            <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
-              {feature.icon}
-            </div>
-            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-            <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
-          </div>
-        ))}
-      </div>
+          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3">{feature.title}</h3>
+          <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
+        </div>
+      ))}
     </div>
   </div>
+</div>
 </section>
 
 
@@ -428,14 +431,17 @@ export default function HomePage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-                  <button className="group bg-white text-[#0f4444] px-10 py-5 rounded-2xl font-bold hover:bg-slate-100 hover:scale-105 transition-all duration-300 flex items-center  shadow-2xl">
-                    <div className="text-3xl">📧</div>
-                    <div className="text-left">
-                      <div className="text-sm opacity-60">Kemitraan</div>
-                      <div className="text-lg">mulateknologimandiri@gmail.com</div>
-                    </div>
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                  </button>
+<a 
+  href="mailto:mulateknologimandiri@gmail.com?subject=Kemitraan%20Bisnis&body=Halo%2C%20saya%20tertarik%20untuk%20membahas%20peluang%20kemitraan..."
+  className="group bg-white text-[#0f4444] px-4 sm:px-10 py-5 rounded-2xl font-bold hover:bg-slate-100 hover:scale-105 transition-all duration-300 flex items-center shadow-2xl mx-2 sm:mx-0 cursor-pointer"
+>
+  <div className="text-2xl sm:text-3xl">📧</div>
+  <div className="text-left ml-2 sm:ml-3">
+    <div className="text-xs sm:text-sm opacity-60">Kemitraan</div>
+    <div className="text-base sm:text-lg break-all sm:break-normal">mulateknologimandiri@gmail.com</div>
+  </div>
+  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform ml-auto" />
+</a>
                   <button className="group bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-10 py-5 rounded-2xl font-bold hover:bg-white hover:text-[#0f4444] hover:scale-105 transition-all duration-300 flex items-center space-x-4">
                     <div className="text-3xl">📞</div>
                     <div className="text-left">
