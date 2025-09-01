@@ -167,34 +167,19 @@ export default function HomePage() {
                   </div>
                   
                   {/* CTA Buttons */}
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <button className="group bg-gradient-to-r from-[#0f4444] to-[#156064] text-white px-8 py-4 rounded-2xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
-                      <span>Lihat Demo</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="group bg-white/80 backdrop-blur-sm border-2 border-[#0f4444]/20 text-[#0f4444] px-8 py-4 rounded-2xl font-semibold hover:bg-[#0f4444] hover:text-white hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
-                      <span>Kemitraan</span>
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                  </div>
+                 
                 </div>
                 
                 {/* Right Content - App Preview Placeholder */}
                 <div className=" flex justify-center ">
-                  <div className="w-80 h-[600px] bg-gradient-to-br from-slate-100 to-white rounded-3xl shadow-2xl border-8 border-slate-800 overflow-hidden z-20">
-                    <div className="w-full h-full bg-gradient-to-br from-[#0f4444] to-[#156064] flex items-center justify-center text-white">
                       <div className="text-center">
-                        <Smartphone className="w-20 h-20 mx-auto mb-6" />
                          <Image
-                                          src={`/screenshots/1.png`}
-                                          alt={`App Screenshot `}
-                                          width={320}
-                                          height={640}
-                                          className="object-cover w-full h-full"
-                                        />
+                              src={`/screenshots/1.png`}
+                              alt={`App Screenshot `}
+                              width={320}
+                              height={640}
+                           />
                       </div>
-                    </div>
-                  </div>
                   <div className="absolute inset-0 bg-gradient-to-r from-[#0f4444]/30 to-[#156064]/30 rounded-3xl opacity-60 blur-xl -z-10 scale-110 animate-pulse"></div>
                 </div>
               </div>
@@ -349,7 +334,9 @@ export default function HomePage() {
                       "Integrasi Booking & Pembayaran",
                       "MVP Dashboard Admin",
                       "Desain UI/UX Aplikasi Mobile",
-                      "Skema Database & API"
+                      "Skema Database & API",
+                      "Sistem Push Notification",
+                      "Portal Manajemen Operator"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
                         <div className="w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center">
@@ -371,7 +358,6 @@ export default function HomePage() {
                       "Sistem Push Notification",
                       "Portal Manajemen Operator",
                       "Dashboard Analitik Canggih",
-                      "Dukungan Multi-bahasa",
                       "Program Beta Testing"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
@@ -454,7 +440,7 @@ export default function HomePage() {
                     <div className="text-3xl">📞</div>
                     <div className="text-left">
                       <div className="text-sm opacity-60">Pengembangan Bisnis</div>
-                      <div className="text-lg">+62 812-3456-7890</div>
+                      <div className="text-lg">0853-7242-7910</div>
                     </div>
                     <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   </button>
@@ -511,7 +497,7 @@ export default function HomePage() {
                       <span>Fase Pra-Peluncuran</span>
                     </div>
                     <div>📧 mulateknologimandiri@gmail.com</div>
-                    <div>📞 +62 812-3456-7890</div>
+                    <div>📞 0853-7242-7910</div>
                     <div>📍 Aceh, Indonesia</div>
                   </div>
                 </div>

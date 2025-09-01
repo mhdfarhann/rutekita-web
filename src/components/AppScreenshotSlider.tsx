@@ -42,17 +42,15 @@ export default function AppScreenshotSlider() {
         </div>
 
         <div ref={sliderRef} className="keen-slider">
-          {["1.png", "2.png", "3.png"].map((img, i) => (
+          {["2.png", "3.png", "4.png", , "5.png", , "6.png", , "7.png", , "8.png", , "9.png", "10.png", "11.png", "12.png"].map((img, i) => (
             <div key={i} className="keen-slider__slide flex justify-center">
-              <div className="w-80 h-[640px] rounded-3xl shadow-2xl border-8 border-slate-800 overflow-hidden">
                 <Image
                   src={`/screenshots/${img}`}
                   alt={`App Screenshot ${i + 1}`}
                   width={320}
                   height={640}
-                  className="object-cover w-full h-full"
+                  className="rounded-lg shadow-lg"
                 />
-              </div>
             </div>
           ))}
         </div>
