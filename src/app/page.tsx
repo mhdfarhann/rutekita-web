@@ -55,6 +55,19 @@ const features: Feature[] = [
 
 export default function HomePage() {
   const isMobile = useIsMobile()
+  
+  // Fungsi untuk menangani klik WhatsApp
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "6285372427910"; // Format internasional (62 untuk Indonesia)
+    const message = encodeURIComponent("Halo, saya ingin bertanya tentang RuteKita."); // Pesan default
+    
+    // URL WhatsApp
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Buka di tab/window baru
+    window.open(whatsappURL, '_blank');
+  };
+
   return (
         <div className="min-h-screen w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 ">
           {/* Floating Background Elements */}
@@ -100,7 +113,10 @@ export default function HomePage() {
                     <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                     <span className="text-sm font-medium text-emerald-700">Pra-Peluncuran</span>
                   </div>
-                  <button className="bg-gradient-to-r from-[#0f4444] to-[#156064] text-white px-6 py-2.5 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
+                  <button 
+                    onClick={handleWhatsAppClick}
+                    className="bg-gradient-to-r from-[#0f4444] to-[#156064] text-white px-6 py-2.5 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  >
                     {isMobile ? (
                       <Phone className="w-5 h-5" />
                     ) : (
