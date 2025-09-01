@@ -13,11 +13,61 @@ import AppScreenshotSlider from "../components/AppScreenshotSlider"
 import Image from "next/image"
 import { useIsMobile } from "@/hooks/useMobile"
 import Logopr from "@/components/logopr"
+import { JSX } from "react"
+
+
+interface Feature {
+  icon: JSX.Element
+  title: string
+  desc: string
+}
+
+const features: Feature[] = [
+  {
+    icon: <CreditCard className="w-8 h-8" />,
+    title: "Pembayaran Cerdas",
+    desc: "Berbagai opsi pembayaran dengan proses aman dan konfirmasi instan"
+  },
+  {
+    icon: <ShieldCheck className="w-8 h-8" />,
+    title: "Keamanan Utama",
+    desc: "Operator terverifikasi, rating keamanan, dan fitur bantuan darurat"
+  },
+  {
+    icon: <BarChart3 className="w-8 h-8" />,
+    title: "Analitik Data",
+    desc: "Insight komprehensif untuk optimasi rute dan prediksi permintaan"
+  },
+  {
+    icon: <Smartphone className="w-8 h-8" />,
+    title: "Mobile Optimal",
+    desc: "Aplikasi native untuk iOS dan Android dengan kemampuan offline"
+  },
+  {
+    icon: <Bus className="w-8 h-8" />,
+    title: "Manajemen Armada",
+    desc: "Kontrol operasional lengkap dengan penjadwalan perawatan dan manajemen "
+  }
+]
+
 
 
 
 export default function HomePage() {
   const isMobile = useIsMobile()
+  
+  // Fungsi untuk menangani klik WhatsApp
+  const handleWhatsAppClick = () => {
+    const phoneNumber = "6285372427910"; // Format internasional (62 untuk Indonesia)
+    const message = encodeURIComponent("Halo, saya ingin bertanya tentang RuteKita."); // Pesan default
+    
+    // URL WhatsApp
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // Buka di tab/window baru
+    window.open(whatsappURL, '_blank');
+  };
+
   return (
         <div className="min-h-screen w-full h-full bg-gradient-to-br from-slate-50 via-white to-slate-100 ">
           {/* Floating Background Elements */}
@@ -63,7 +113,10 @@ export default function HomePage() {
                     <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
                     <span className="text-sm font-medium text-emerald-700">Pra-Peluncuran</span>
                   </div>
-                  <button className="bg-gradient-to-r from-[#0f4444] to-[#156064] text-white px-6 py-2.5 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
+                  <button 
+                    onClick={handleWhatsAppClick}
+                    className="bg-gradient-to-r from-[#0f4444] to-[#156064] text-white px-6 py-2.5 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  >
                     {isMobile ? (
                       <Phone className="w-5 h-5" />
                     ) : (
@@ -200,67 +253,66 @@ export default function HomePage() {
 
           
 
-          {/* Features Section */}
-          <section id="fitur" className="py-20 bg-gradient-to-br from-slate-900 via-[#0f4444] to-[#156064] text-white relative overflow-hidden">
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
-              <div className="absolute bottom-20 right-20 w-48 h-48 border border-white rounded-full"></div>
-              <div className="absolute top-1/3 right-1/4 w-24 h-24 border border-white rounded-full"></div>
-              <div className="absolute bottom-1/3 left-1/4 w-36 h-36 border border-white rounded-full"></div>
+        {/* Features Section */}
+<section
+  id="fitur"
+  className="py-20 bg-gradient-to-br from-slate-900 via-[#0f4444] to-[#156064] text-white relative overflow-hidden"
+>
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute top-10 left-10 w-32 h-32 border border-white rounded-full"></div>
+    <div className="absolute bottom-20 right-20 w-48 h-48 border border-white rounded-full"></div>
+    <div className="absolute top-1/3 right-1/4 w-24 h-24 border border-white rounded-full"></div>
+    <div className="absolute bottom-1/3 left-1/4 w-36 h-36 border border-white rounded-full"></div>
+  </div>
+
+  <div className="container mx-auto px-6 relative">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl lg:text-5xl font-bold mb-4">Fitur Canggih</h2>
+      <p className="text-xl text-white/80 max-w-3xl mx-auto">
+        Dibangun dengan teknologi terdepan untuk memberikan pengalaman pengguna yang luar biasa dan efisiensi operasional
+      </p>
+    </div>
+
+    <div className="space-y-8 max-w-6xl mx-auto">
+      {/* Baris pertama (3 item) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+        {features.slice(0, 3).map((feature, index) => (
+          <div
+            key={index}
+            className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 
+                       hover:bg-white/20 hover:scale-105 transition-all duration-300 
+                       h-full flex flex-col"
+          >
+            <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
+              {feature.icon}
             </div>
-            
-            <div className="container mx-auto px-6 relative">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-4">Fitur Canggih</h2>
-                <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                  Dibangun dengan teknologi terdepan untuk memberikan pengalaman pengguna yang luar biasa dan efisiensi operasional
-                </p>
-              </div>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {[
-                  {
-                    icon: <MapPin className="w-8 h-8" />,
-                    title: "Pelacakan Real-time",
-                    desc: "Pelacakan GPS langsung dengan prediksi kedatangan akurat dan update rute"
-                  },
-                  {
-                    icon: <CreditCard className="w-8 h-8" />,
-                    title: "Pembayaran Cerdas",
-                    desc: "Berbagai opsi pembayaran dengan proses aman dan konfirmasi instan"
-                  },
-                  {
-                    icon: <ShieldCheck className="w-8 h-8" />,
-                    title: "Keamanan Utama",
-                    desc: "Operator terverifikasi, rating keamanan, dan fitur bantuan darurat"
-                  },
-                  {
-                    icon: <BarChart3 className="w-8 h-8" />,
-                    title: "Analitik Data",
-                    desc: "Insight komprehensif untuk optimasi rute dan prediksi permintaan"
-                  },
-                  {
-                    icon: <Smartphone className="w-8 h-8" />,
-                    title: "Mobile Optimal",
-                    desc: "Aplikasi native untuk iOS dan Android dengan kemampuan offline"
-                  },
-                  {
-                    icon: <Bus className="w-8 h-8" />,
-                    title: "Manajemen Armada",
-                    desc: "Kontrol operasional lengkap dengan penjadwalan perawatan dan manajemen kru"
-                  }
-                ].map((feature, index) => (
-                  <div key={index} className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300">
-                    <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                    <p className="text-white/80 text-sm leading-relaxed">{feature.desc}</p>
-                  </div>
-                ))}
-              </div>
+            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+            <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Baris kedua (2 item di tengah) */}
+      <div className="flex justify-center gap-8 items-stretch">
+        {features.slice(3).map((feature, index) => (
+          <div
+            key={index}
+            className="group bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 
+                       hover:bg-white/20 hover:scale-105 transition-all duration-300 
+                       h-full flex flex-col min-w-[280px] max-w-[320px]"
+          >
+            <div className="text-white/80 mb-4 group-hover:text-white transition-colors duration-300">
+              {feature.icon}
             </div>
-          </section>
+            <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+            <p className="text-white/80 text-sm leading-relaxed flex-grow">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
           {/* Development Roadmap */}
           <section id="roadmap" className="py-20 bg-slate-50">
@@ -394,7 +446,7 @@ export default function HomePage() {
                     <div className="text-3xl">📧</div>
                     <div className="text-left">
                       <div className="text-sm opacity-60">Kemitraan</div>
-                      <div className="text-lg">partnership@rutekita.com</div>
+                      <div className="text-lg">mulateknologimandiri@gmail.com</div>
                     </div>
                     <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
                   </button>
