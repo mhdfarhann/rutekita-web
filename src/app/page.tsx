@@ -8,13 +8,15 @@ import {
   Smartphone,
   ArrowRight,
   Phone,
+  Monitor,
+  Users,
 } from "lucide-react"
 import AppScreenshotSlider from "../components/AppScreenshotSlider"
 import Image from "next/image"
 import { useIsMobile } from "@/hooks/useMobile"
 import Logopr from "@/components/logopr"
+import DashboardSlider from "../components/DashboardSlider"
 import { JSX } from "react"
-
 
 interface Feature {
   icon: JSX.Element
@@ -50,9 +52,6 @@ const features: Feature[] = [
   }
 ]
 
-
-
-
 export default function HomePage() {
   const isMobile = useIsMobile()
   return (
@@ -72,7 +71,6 @@ export default function HomePage() {
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
                     <div className="relative w-14 h-14 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center shadow-xl">
-                      {/* <Bus className="w-8 h-8 text-white" /> */}
                       <Logopr/>
                     </div>
                   </div>
@@ -88,6 +86,10 @@ export default function HomePage() {
                   </a>
                   <a href="#fitur" className="text-slate-600 hover:text-[#0f4444] transition-all duration-300 font-medium relative group">
                     Fitur
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#0f4444] to-[#156064] transition-all duration-300 group-hover:w-full"></span>
+                  </a>
+                  <a href="#dashboard" className="text-slate-600 hover:text-[#0f4444] transition-all duration-300 font-medium relative group">
+                    Dashboard
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#0f4444] to-[#156064] transition-all duration-300 group-hover:w-full"></span>
                   </a>
                   <a href="#roadmap" className="text-slate-600 hover:text-[#0f4444] transition-all duration-300 font-medium relative group">
@@ -149,9 +151,6 @@ export default function HomePage() {
                       <div className="text-sm text-slate-500">Siap Diluncurkan</div>
                     </div>
                   </div>
-                  
-                  {/* CTA Buttons */}
-                 
                 </div>
                 
                 {/* Right Content - App Preview Placeholder */}
@@ -220,7 +219,56 @@ export default function HomePage() {
             </div>
           </section>
 
-          
+          {/* NEW SECTION: Dashboard Admin Preview with Slider */}
+          <section id="dashboard" className="py-20 bg-gradient-to-br from-slate-50 to-white">
+            <div className="container mx-auto px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+                  Dashboard <span className="bg-gradient-to-r from-[#0f4444] to-[#156064] bg-clip-text text-transparent">Admin</span>
+                </h2>
+                <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                  Antarmuka manajemen yang powerful untuk mengontrol seluruh operasional platform dengan insight mendalam
+                </p>
+              </div>
+              
+              {/* Dashboard Slider Component */}
+              <DashboardSlider />
+
+              {/* Additional Features Grid */}
+              <div className="mt-20 grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div className="text-center space-y-4 p-6 bg-white rounded-2xl shadow-lg border border-slate-200/50">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#0f4444]/10 to-[#156064]/10 rounded-xl flex items-center justify-center mx-auto">
+                    <svg className="w-6 h-6 text-[#0f4444]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold text-slate-900">Real-time Updates</h3>
+                  <p className="text-sm text-slate-600">Live data synchronization across all modules</p>
+                </div>
+
+                <div className="text-center space-y-4 p-6 bg-white rounded-2xl shadow-lg border border-slate-200/50">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#0f4444]/10 to-[#156064]/10 rounded-xl flex items-center justify-center mx-auto">
+                    <svg className="w-6 h-6 text-[#0f4444]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold text-slate-900">Smart Automation</h3>
+                  <p className="text-sm text-slate-600">Automated workflows and intelligent alerts</p>
+                </div>
+
+                <div className="text-center space-y-4 p-6 bg-white rounded-2xl shadow-lg border border-slate-200/50">
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#0f4444]/10 to-[#156064]/10 rounded-xl flex items-center justify-center mx-auto">
+                    <svg className="w-6 h-6 text-[#0f4444]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold text-slate-900">Custom Controls</h3>
+                  <p className="text-sm text-slate-600">Personalized dashboard layout and preferences</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
 
         {/* Features Section */}
 <section
@@ -282,7 +330,6 @@ export default function HomePage() {
   </div>
 </section>
 
-
           {/* Development Roadmap */}
           <section id="roadmap" className="py-20 bg-slate-50">
             <div className="container mx-auto px-6">
@@ -298,10 +345,10 @@ export default function HomePage() {
                 <div className="mb-12">
                   <div className="flex justify-between text-sm text-slate-600 mb-2">
                     <span>Progres Keseluruhan</span>
-                    <span>85%</span>
+                    <span>95%</span>
                   </div>
                   <div className="w-full bg-slate-200 rounded-full h-3">
-                    <div className="bg-gradient-to-r from-[#0f4444] to-[#156064] h-3 rounded-full" style={{width: '85%'}}></div>
+                    <div className="bg-gradient-to-r from-[#0f4444] to-[#156064] h-3 rounded-full" style={{width: '95%'}}></div>
                   </div>
                 </div>
                 
@@ -330,18 +377,16 @@ export default function HomePage() {
                       </div>
                     ))}
                   </div>
-                  
-                  {/* In Progress */}
-                  <div className="space-y-6">
-                    <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
+
+
+                  {/* In Progress */}          
+                    <div className="space-y-6">
+                       <h3 className="text-2xl font-bold text-slate-900 mb-6 flex items-center">
                       <div className="w-3 h-3 bg-orange-500 rounded-full mr-3 animate-pulse"></div>
                       Dalam Pengembangan
                     </h3>
                     {[
                       "Pelacakan Bus Real-time",
-                      "Sistem Push Notification",
-                      "Portal Manajemen Operator",
-                      "Dashboard Analitik Canggih",
                       "Program Beta Testing"
                     ].map((item, index) => (
                       <div key={index} className="flex items-center space-x-4 p-4 bg-white rounded-xl shadow-sm">
@@ -353,7 +398,8 @@ export default function HomePage() {
                     ))}
                   </div>
                 </div>
-                
+
+                       
                 {/* Timeline */}
                 <div className="mt-16 text-center">
                   <div className="flex flex-col lg:flex-row justify-center items-center gap-4 bg-white rounded-2xl p-6 shadow-lg ">
@@ -462,7 +508,6 @@ export default function HomePage() {
                       <div className="absolute inset-0 bg-gradient-to-r bg-white to-gray-200 rounded-2xl blur opacity-75"></div>
                       <div className="relative w-12 h-12 bg-gradient-to-br bg-white to-gray-200 rounded-2xl flex items-center justify-center">
                         <Logopr/>
-
                       </div>
                     </div>
                     <div>
@@ -536,5 +581,3 @@ export default function HomePage() {
     
   )
 }
-
-
