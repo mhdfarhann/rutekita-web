@@ -20,8 +20,12 @@ export const metadata: Metadata = {
     icon: "/screenshots/icon-logo.png",
     shortcut: "/screenshots/icon-logo.png",
     apple: "/screenshots/icon-logo.png",
-  }
+  },
+  verification: {
+    google: "LTxNBrm9lNfKNMegxHN_gvj2V4pliACoCDlzftkeYlo", // isi token dari Search Console
+  },
 }
+
 
 export default function RootLayout({
   children,
