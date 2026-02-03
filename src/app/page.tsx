@@ -167,6 +167,22 @@ export default function HomePage() {
                       <div className="text-sm text-slate-500">Siap Diluncurkan</div>
                     </div>
                   </div>
+
+                  {/* Play Store Button */}
+                  <div className="flex justify-center lg:justify-start mt-8">
+                    <a 
+                      href="https://play.google.com/store/apps/details?id=org.rutekita.project&pcampaignid=web_share"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block transition-transform hover:scale-105 active:scale-95"
+                    >
+                      <img 
+                        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                        alt="Get it on Google Play"
+                        className="h-20 md:h-22"
+                      />
+                    </a>
+                  </div>
                 </div>
                 
                 {/* Right Content - App Preview Placeholder */}
